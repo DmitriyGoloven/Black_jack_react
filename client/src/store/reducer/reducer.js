@@ -1,8 +1,9 @@
-import {handleActions} from "redux-actions";
+import {handleAction} from "redux-actions";
+import {getNewGame} from "./actions";
 
 
 export const defaultState = {
-    player: 1,
+    losers: null,
 
 }
 
@@ -13,6 +14,18 @@ function reducer(state) {
 
          return defaultState;
     }
+
+// const reducer = handleAction({
+//
+//     [getNewGame]: (state, { payload }) => {
+// console.log(state)
+//         return {
+//             ...state,
+//             losers: payload.losers,
+//         };
+//     }
+//
+// }, defaultState)
 
 
 

@@ -6,17 +6,12 @@
   "scripts": {
     "build": "webpack --mode production",
     "watch": "webpack --mode development --watch",
-    "start": "nodemon entry.js -devmode",
     "all": "nodemon entry.js -devmode & webpack --mode development --watch"
   },
   "author": "Dim",
   "license": "ISC",
   "dependencies": {
-    "@koa/router": "^10.1.1",
     "axios": "^0.27.2",
-    "koa": "^2.13.4",
-    "koa-router": "^10.1.1",
-    "koa-static": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.0",

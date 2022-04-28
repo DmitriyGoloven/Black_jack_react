@@ -1,5 +1,3 @@
-// import {createModalWindow, game, modalContent} from './index'
-// const game = require("./index")
 
 module.exports = class Player {
     scores = 0;
@@ -35,9 +33,5 @@ module.exports = class Player {
         this.scores = 0
         this.scoreSum()
     }
-
-
-
-
 }
 

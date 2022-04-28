@@ -1,11 +1,8 @@
 const Card = require("./card")
-const Player = require("./player")
-
 
 class Game {
     losers = []
     winners = []
-
 
     constructor(players) {
         this.players = players
@@ -14,8 +11,8 @@ class Game {
         this.addPlayer(players)
     }
 
-
     addPlayer(players) {
+
         for (let i = 0; i < this.players.length; i++) {
             this.players[i].game = this;
             this.players[i].giveFirstCards();
@@ -24,30 +21,32 @@ class Game {
         this.activePlayer = players[0]
     }
 
+    hit() {
 
-    hitButton() {
         if (this.activePlayer.scores > 21) {
             this.losers.push(this.activePlayer)
             this.nextPlayer()
+
         } else if (this.activePlayer.scores === 21) {
             this.winners.push(this.activePlayer)
             this.nextPlayer()
         }
         this.activePlayer.hit();
-
     }
 
+    stand() {
 
-    standButton() {
         if (this.activePlayer.scores <= 21) {
             this.winners.push(this.activePlayer)
             this.nextPlayer()
         }
     }
+
     checkWinner() {
 
         if (this.winners.length === 0) {
             console.log( "NO winners")
+            alert("NO winner")
         } else {
             let scoreWinners = this.winners.map((player) => {
                 return player.scores
@@ -55,11 +54,10 @@ class Game {
 
             let winner = scoreWinners.indexOf(Math.max(...scoreWinners))
             console.log(`${this.winners[winner].name}` + ' WINNER')
-
-
         }
     }
     nextPlayer() {
+
         if ((this.players.indexOf(this.activePlayer) + 1) !== this.players.length) {
             this.activePlayer = this.players[this.players.indexOf(this.activePlayer) + 1];
         } else {
@@ -71,7 +69,6 @@ class Game {
 
 module.exports = Game
 
-let game = new Game([new Player(), new Player(), new Player()])
 
 
 

@@ -10,7 +10,8 @@ let game = new Game([new Player(), new Player(), new Player()])
 router.get('/api/game', (ctx) => {
     // console.log([game.activePlayer.cardImg])
     // console.log([game.activePlayer.name])
-    ctx.body = {Player: game.activePlayer.name, scores: game.activePlayer.scores, cards: game.activePlayer.cards}
+    ctx.body = game.activePlayer.name
+        // {Player: game.activePlayer.name, scores: game.activePlayer.scores, cards: game.activePlayer.cards}
 })
 
 router.post('/api/stand', (ctx) => {

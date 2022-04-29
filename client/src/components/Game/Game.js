@@ -3,12 +3,11 @@ import React from 'react';
 import ButtonTable from "../Buttontable/ButtonTable";
 import MainTable from "../Maintable/MainTable";
 
-const Game = ({getNewGame,losers}) => {
+const Game = ({getNewGame,players}) => {
 
-    // useEffect(() => {
-    //     getNewGame();
-    // }, [])
-    //
+    useEffect(() => {
+        getNewGame();
+    }, [])
 
     return (
             <div className={"table"}>

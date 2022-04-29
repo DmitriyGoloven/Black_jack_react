@@ -1,2 +1,1 @@
-
-// export const losers = state => state.losers;
+export const players = state => state.players;

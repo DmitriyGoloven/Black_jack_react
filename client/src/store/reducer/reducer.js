@@ -1,31 +1,34 @@
-import {handleAction} from "redux-actions";
+import {handleActions} from "redux-actions";
 import {getNewGame} from "./actions";
 
 
-export const defaultState = {
-    losers: null,
+
+const defaultState = {
+    players: null,
+    loading: false,
+    fetched: false,
 
 }
 
-function reducer(state) {
-    // switch(action.type) {
-    //     case ACTION_1: return { value: action.value_1 };
-    //     case ACTION_2: return { value: action.value_2 };
-
-         return defaultState;
+export const reducer = handleActions({
+    [getNewGame]: (state, {payload}) => {
+        return {
+            ...state,
+            loading: true
+        }
+    },
+    [getNewGame.success]: (state, {payload}) => {
+        console.log(payload.data)
+        const players = payload.data;
+        return {
+            ...state,
+            players,
+            loading: false,
+            fetched: true
+        }
     }
 
-// const reducer = handleAction({
-//
-//     [getNewGame]: (state, { payload }) => {
-// console.log(state)
-//         return {
-//             ...state,
-//             losers: payload.losers,
-//         };
-//     }
-//
-// }, defaultState)
+}, defaultState)
 
 
 

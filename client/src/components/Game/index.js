@@ -1,15 +1,18 @@
 import {connect} from "react-redux";
 import Game from "./Game";
-import {players} from "../../store/reducer/selectors"
-import {getNewGame} from "../../store/reducer/actions";
+import {gameState} from "../../store/reducer/selectors"
+import {getNewGame,hit,stand,reset} from "../../store/reducer/actions";
 import {createStructuredSelector} from "reselect";
 
 const mapStateToProp = createStructuredSelector({
-    players
+    gameState,
 })
 
 const mapDispatchToProps = {
-    getNewGame
+    getNewGame,
+    hit,
+    stand,
+    reset
 }
 
 export default connect(mapStateToProp, mapDispatchToProps)(Game);

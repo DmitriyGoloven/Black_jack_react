@@ -1,66 +1,54 @@
 import {handleActions} from "redux-actions";
-import {getNewGame} from "./actions";
+import {getNewGame,hit,stand,reset} from "./actions";
 
 
 
-const defaultState = {
-    players: null,
-    loading: false,
-    fetched: false,
-
-}
+const defaultState = null
 
 export const reducer = handleActions({
-    [getNewGame]: (state, {payload}) => {
+
+    [getNewGame.success]: (state, {payload}) => {
+        const {players, activePlayer,winner} =  payload.data;
         return {
             ...state,
-            loading: true
+            players: players,
+            activePlayer: activePlayer,
+            winner: winner
         }
     },
-    [getNewGame.success]: (state, {payload}) => {
-        console.log(payload.data)
-        const players = payload.data;
+    [hit.success]: (state, {payload}) => {
+        const {players, activePlayer,winner} =  payload.data;
+
         return {
             ...state,
-            players,
-            loading: false,
-            fetched: true
+            players: players,
+            activePlayer: activePlayer,
+            winner: winner
+        }
+    },
+    [stand.success]: (state, {payload}) => {
+        const {players, activePlayer,winner} =  payload.data;
+
+        return {
+            ...state,
+            players: players,
+            activePlayer: activePlayer,
+            winner: winner
+        }
+    },
+    [reset.success]: (state, {payload}) => {
+        const {players, activePlayer,winner} =  payload.data;
+
+        return {
+            ...state,
+            players: players,
+            activePlayer: activePlayer,
+            winner: winner
         }
     }
 
+
 }, defaultState)
-
-
-
-// const reducer = handleActions({
-//     [action]: (state) => {
-//
-//         const player = 1
-//         return {
-//             ...state,
-//             player: 2
-//         };
-//     },
-//     [action]: state => ({
-//         ...state,
-//         player: null,
-//     }),
-//     [action]: (state, { payload }) => {
-//         const sumState = {
-//             player: state.player,
-//         }
-//
-//         if (state.player)
-//             return state
-//
-//
-//         return {
-//             ...state,
-//             player: 2,
-//         };
-//     }
-//
-// }, defaultState)
 
 export default reducer;
 

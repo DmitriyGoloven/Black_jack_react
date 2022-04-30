@@ -1,12 +1,16 @@
 import React from 'react';
 
 
-const Player = () => {
+const Player = ({name, scores, cardImg}) => {
+
+
     return (
-        <div  className={"player"}>
-            <p>Name</p>
-            <p>Score</p>
-            <p className={"'cardImg'"}>CardImg</p>
+        <div>
+            <p>{name}</p>
+            <div className={"player"}>
+                <p>SCORES: {scores}</p>
+                <p className={"'cardImg'"}>CARDS:<br/><br/>{cardImg}</p>
+            </div>
         </div>
     );
 };

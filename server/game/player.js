@@ -1,11 +1,11 @@
 
+
 module.exports = class Player {
     scores = 0;
     cardImg = []
 
     constructor() {
         this.name = this.randomName();
-        this.game = null;
         this.cards = [];
     }
 
@@ -21,14 +21,8 @@ module.exports = class Player {
         }
     }
 
-    giveFirstCards() {
-        this.cards.push(this.game.cardDeck.shift())
-        this.cards.push(this.game.cardDeck.shift())
-        this.scoreSum()
-    }
 
     hit() {
-        this.cards.push(this.game.cardDeck.shift())
         this.cardImg.length = 0
         this.scores = 0
         this.scoreSum()

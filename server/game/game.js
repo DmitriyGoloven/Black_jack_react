@@ -1,6 +1,8 @@
 const Card = require("./card")
+const Player = require("./player")
 
 class Game {
+    winner = null
     losers = []
     winners = []
 
@@ -14,8 +16,9 @@ class Game {
     addPlayer(players) {
 
         for (let i = 0; i < this.players.length; i++) {
-            this.players[i].game = this;
-            this.players[i].giveFirstCards();
+            this.players[i].cards.push(this.cardDeck.shift())
+            this.players[i].cards.push(this.cardDeck.shift())
+            this.players[i].scoreSum()
             this.players[i].id = [i]
         }
         this.activePlayer = players[0]
@@ -31,6 +34,7 @@ class Game {
             this.winners.push(this.activePlayer)
             this.nextPlayer()
         }
+        this.activePlayer.cards.push(this.cardDeck.shift())
         this.activePlayer.hit();
     }
 
@@ -46,7 +50,7 @@ class Game {
 
         if (this.winners.length === 0) {
             console.log( "NO winners")
-            alert("NO winner")
+            this.winner = 'NO winners'
         } else {
             let scoreWinners = this.winners.map((player) => {
                 return player.scores
@@ -54,6 +58,7 @@ class Game {
 
             let winner = scoreWinners.indexOf(Math.max(...scoreWinners))
             console.log(`${this.winners[winner].name}` + ' WINNER')
+            this.winner = `${this.winners[winner].name}` + ' WINNER'
         }
     }
     nextPlayer() {
@@ -62,12 +67,16 @@ class Game {
             this.activePlayer = this.players[this.players.indexOf(this.activePlayer) + 1];
         } else {
             this.checkWinner()
-            this.activePlayer.game = null
+            this.activePlayer = null
         }
     }
 }
 
 module.exports = Game
+
+// let game = new Game([new Player(), new Player(), new Player()])
+//
+// console.log(game)
 
 
 

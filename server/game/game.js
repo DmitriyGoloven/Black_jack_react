@@ -50,7 +50,7 @@ class Game {
 
         if (this.winners.length === 0) {
             console.log( "NO WINNER")
-            this.winner = 'NO WINNER'
+            this.winner = { name: "NO WINNER", scores: "0"}
         } else {
             let scoreWinners = this.winners.map((player) => {
                 return player.scores
@@ -59,7 +59,6 @@ class Game {
             let winner = scoreWinners.indexOf(Math.max(...scoreWinners))
             console.log(`${this.winners[winner].name}` + ' WINNER')
             this.winner = { name: this.winners[winner].name, scores: this.winners[winner].scores};
-            // this.winner = `${this.winners[winner].name}` + ' WINNER ' + "SCORE: " + `${this.winners[winner].scores}`
         }
     }
     nextPlayer() {
@@ -75,9 +74,6 @@ class Game {
 
 module.exports = Game
 
-// let game = new Game([new Player(), new Player(), new Player()])
-//
-// console.log(game)
 
 
 

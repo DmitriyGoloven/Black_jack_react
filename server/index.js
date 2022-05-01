@@ -8,4 +8,4 @@ const  router = require('./routes/router')
  app.use(server(path.join(__dirname, 'public/static')))
  app.use(router.routes());
 
-app.listen(8000);
+app.listen(8080);

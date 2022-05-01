@@ -1,5 +1,4 @@
 
-
 module.exports = class Player {
     scores = 0;
     cardImg = []
@@ -20,7 +19,6 @@ module.exports = class Player {
             this.cardImg.push(card.picture)
         }
     }
-
 
     hit() {
         this.cardImg.length = 0

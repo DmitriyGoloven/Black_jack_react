@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Modal = ({winner,onclick}) => {
+const Modal = ({winner, onclick}) => {
 
     if (!winner)
         return
@@ -14,7 +14,6 @@ const Modal = ({winner,onclick}) => {
                     <button className={"modalButton"} onClick={onclick}>NEW GAME</button>
                 </div>
             </div>
-
         </div>
     );
 };

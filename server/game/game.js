@@ -36,8 +36,6 @@ class Game {
             this.winners.push(this.activePlayer)
             this.nextPlayer()
         }
-        // this.activePlayer.cards.push(this.cardDeck.shift())
-        // this.activePlayer.hit();
     }
 
     stand() {
@@ -51,8 +49,8 @@ class Game {
     checkWinner() {
 
         if (this.winners.length === 0) {
-            console.log( "NO winners")
-            this.winner = 'NO winners'
+            console.log( "NO WINNER")
+            this.winner = 'NO WINNER'
         } else {
             let scoreWinners = this.winners.map((player) => {
                 return player.scores
@@ -60,7 +58,8 @@ class Game {
 
             let winner = scoreWinners.indexOf(Math.max(...scoreWinners))
             console.log(`${this.winners[winner].name}` + ' WINNER')
-            this.winner = `${this.winners[winner].name}` + ' WINNER'
+            this.winner = { name: this.winners[winner].name, scores: this.winners[winner].scores};
+            // this.winner = `${this.winners[winner].name}` + ' WINNER ' + "SCORE: " + `${this.winners[winner].scores}`
         }
     }
     nextPlayer() {
@@ -69,7 +68,7 @@ class Game {
             this.activePlayer = this.players[this.players.indexOf(this.activePlayer) + 1];
         } else {
             this.checkWinner()
-            this.activePlayer = null
+            this.players = []
         }
     }
 }

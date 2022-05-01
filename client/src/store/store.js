@@ -5,8 +5,7 @@ import axios from "axios";
 import reducer from "./reducer/reducer";
 
 const client = axios.create({
-    baseURL: 'http://localhost:8000/api',
-    responseType: 'json'
+    baseURL: 'http://localhost:8000/api'
 })
 
 

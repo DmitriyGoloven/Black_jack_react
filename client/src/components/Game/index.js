@@ -6,6 +6,7 @@ import {createStructuredSelector} from "reselect";
 
 const mapStateToProp = createStructuredSelector({
     gameState,
+
 })
 
 const mapDispatchToProps = {

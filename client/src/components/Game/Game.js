@@ -18,7 +18,7 @@ const Game = ({getNewGame,hit,stand,gameState, reset}) => {
 
     return (
             <div className={"table"}>
-                <MainTable players={gameState}/>
+                <MainTable state={gameState}/>
                 <ButtonTable onClick={hit} offClick={stand} andClick={reset}/>
 
 

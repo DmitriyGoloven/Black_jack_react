@@ -5,7 +5,7 @@ const ButtonTable = ({onClick,offClick,andClick}) => {
         <div className={"buttonTable"}>
             <h2 >Cards</h2>
             <div className={"panel"}>
-                <img className={"img"} src="https://w7.pngwing.com/pngs/829/358/png-transparent-bicycle-playing-cards-standard-52-card-deck-ace-united-states-playing-card-company-suit-game-bicycle-toy-thumbnail.png" alt={"Card deck"}/>
+                <img className={"img"} src="https://kartinkin.net/uploads/posts/2021-07/1626967022_30-kartinkin-com-p-fon-dlya-rubashki-kart-krasivo-35.jpg" alt={"Card deck"}/>
                 <button className={"hit"} onClick={onClick}>HIT</button>
                 <button className={"stand"} onClick={offClick}>STAND</button>
                 <button className={"stand"} onClick={andClick}>new game</button>

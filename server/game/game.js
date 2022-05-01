@@ -25,6 +25,8 @@ class Game {
     }
 
     hit() {
+        this.activePlayer.cards.push(this.cardDeck.shift())
+        this.activePlayer.hit();
 
         if (this.activePlayer.scores > 21) {
             this.losers.push(this.activePlayer)
@@ -34,8 +36,8 @@ class Game {
             this.winners.push(this.activePlayer)
             this.nextPlayer()
         }
-        this.activePlayer.cards.push(this.cardDeck.shift())
-        this.activePlayer.hit();
+        // this.activePlayer.cards.push(this.cardDeck.shift())
+        // this.activePlayer.hit();
     }
 
     stand() {

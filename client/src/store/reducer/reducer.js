@@ -2,7 +2,6 @@ import {handleActions} from "redux-actions";
 import {getNewGame,hit,stand,reset} from "./actions";
 
 
-
 const defaultState = null
 
 export const reducer = handleActions({

@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const Player = ({name, scores, cardImg, id, activeId}) => {
+const Player = ({name, scores, cardImg, active}) => {
 
     return (
         <div>
             <p>{name}</p>
-            <div className={id[0] === activeId[0] ? "player player_active" : "player"}>
+            <div className={active ? "player player_active" : "player"}>
                 <p className={"cardImg"}>{cardImg}</p>
                 <p>SCORES: {scores}</p>
                 <p className={"cardImg2"}>{cardImg}</p>
